@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="userService" name="aaa,bbb" scope="prototype" class="com.yixuexi.demo01.service.impl.UserServiceImpl">
+        <property name="userDao" ref="userDao"></property>
+    </bean>
+
+    <bean id="userDao" class="com.yixuexi.demo01.dao.impl.UserDaoImpl"></bean>
+
+    <bean id="userDao02" lazy-init="true" class="com.yixuexi.demo01.dao.impl.UserDaoImpl"></bean>
+
+    <bean id="userService02" class="com.yixuexi.demo01.service.impl.UserServiceImpl"
+          init-method="init" destroy-method="destroy" >
+    </bean>
+
+    <bean id="userDao03" class="com.yixuexi.demo01.dao.impl.UserDaoImpl">
+        <constructor-arg name="name" value="仝子瑜"/>
+    </bean>
+
+    <bean id="studentService" class="com.yixuexi.demo01.service.impl.StudentServiceImpl">
+        <constructor-arg name="name" value="仝子瑜"/>
+    </bean>
+
+    <bean id="userDaoFactoryBean01" class="com.yixuexi.demo01.factory.MyBeanFactory1" factory-method="userDao">
+        <!--携带参数的方法-->
+        <constructor-arg name="name" value="111"/>
+    </bean>
+    <!-- 配置工厂 -->
+    <bean id="userDaoFactory" class="com.yixuexi.demo01.factory.MyBeanFactory1" ></bean>
+    <!--通过配置的工厂 创建对象 -->
+    <bean id="userDaoFactoryBean02" factory-bean="userDaoFactory" factory-method="userDao04"></bean>
+
+
+    <bean id="schoolService1" class="com.yixuexi.demo01.service.impl.SchoolServiceImpl">
+        <property name="stringList">
+            <list>
+                <value>河北地质大学</value>
+                <value>河北科技大学</value>
+                <value>河北经贸大学</value>
+            </list>
+        </property>
+    </bean>
+</beans>
