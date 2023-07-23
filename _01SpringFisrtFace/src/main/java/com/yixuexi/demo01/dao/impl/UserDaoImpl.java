@@ -6,6 +6,8 @@ public class UserDaoImpl implements UserDao {
 
     private String name;
 
+    private String address;
+
     public UserDaoImpl(String name) {
         System.out.println("有参构造执行了");
         this.name = name;

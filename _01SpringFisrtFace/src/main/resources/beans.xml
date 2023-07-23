@@ -41,5 +41,19 @@
                 <value>河北经贸大学</value>
             </list>
         </property>
+        <property name="tempDataList">
+            <list>
+                <ref bean="tempData01"/>
+                <bean class="com.yixuexi.demo01.entity.TempData"/>
+                <bean class="com.yixuexi.demo01.entity.TempData"/>
+                <bean class="com.yixuexi.demo01.entity.TempData"/>
+            </list>
+        </property>
     </bean>
+    <bean  id="tempData01" class="com.yixuexi.demo01.entity.TempData"/>
+    <bean id="tempDataService" class="com.yixuexi.demo01.service.impl.SchoolServiceImpl">
+
+
+    </bean>
+
 </beans>
