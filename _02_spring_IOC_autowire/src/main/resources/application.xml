@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+<!--    <bean id="userDao" class="com.yixuexi.service.com.yixuexi.dao.impl.UserDaoImpl" >-->
+
+<!--    </bean>-->
+
+<!--    &lt;!&ndash; 上面的bean被自动注入到UserServiceImpl对象里 &ndash;&gt;-->
+<!--    <bean id="UserServiceImpl" class="com.yixuexi.service.impl.UserServiceImpl" autowire="byName">-->
+<!--    </bean>-->
+
+<!--    <beans profile="test">-->
+<!--        <bean id="userDao01" class="com.yixuexi.service.com.yixuexi.dao.impl.UserDaoImpl"></bean>-->
+<!--    </beans>-->
+<!--    <beans profile="dev">-->
+<!--        <bean id="userDao02" class="com.yixuexi.service.com.yixuexi.dao.impl.UserDaoImpl"></bean>-->
+<!--    </beans>-->
+
+    <import resource="classpath:application-goods.xml"/>
+    <import resource="classpath:application-user.xml"/>
+
+
+</beans>

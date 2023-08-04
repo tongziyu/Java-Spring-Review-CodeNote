@@ -11,6 +11,7 @@ public class SchoolServiceImpl implements SchoolService {
 
     private List<TempData> tempDataList;
 
+
     public List<TempData> getTempDataList() {
         return tempDataList;
     }

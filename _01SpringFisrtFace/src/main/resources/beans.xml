@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:cache="http://www.springframework.org/schema/cache"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/cache http://www.springframework.org/schema/cache/spring-cache.xsd">
 
     <bean id="userService" name="aaa,bbb" scope="prototype" class="com.yixuexi.demo01.service.impl.UserServiceImpl">
         <property name="userDao" ref="userDao"></property>
@@ -54,6 +54,34 @@
     <bean id="tempDataService" class="com.yixuexi.demo01.service.impl.SchoolServiceImpl">
 
 
+    </bean>
+    <bean id="teacherServiceImpl" class="com.yixuexi.demo01.service.impl.TeacherServiceImpl">
+        <property name="userDaoSet">
+            <set>
+                <ref bean="userDao"></ref>
+                <bean class="com.yixuexi.demo01.dao.impl.UserDaoImpl"></bean>
+                <bean class="com.yixuexi.demo01.dao.impl.UserDaoImpl"></bean>
+            </set>
+        </property>
+    </bean>
+
+    <bean id="addressServiceImpl" class="com.yixuexi.demo01.service.impl.AddressServiceImpl">
+        <property name="stringMap">
+            <map>
+                <entry key="张三" value="河北省石家庄市河北地质大学"></entry>
+
+            </map>
+        </property>
+        <property name="stringUserDaoMap">
+            <map>
+                <entry key="李四" value-ref="userDao03"></entry>
+            </map>
+        </property>
+        <property name="properties">
+            <props>
+                <prop key="王五">河北省石家庄市河北经贸大学</prop>
+            </props>
+        </property>
     </bean>
 
 </beans>

@@ -2,7 +2,9 @@ package com.yixuexi.demo01.test;
 
 import com.yixuexi.demo01.dao.UserDao;
 import com.yixuexi.demo01.dao.impl.UserDaoImpl;
+import com.yixuexi.demo01.service.AddressService;
 import com.yixuexi.demo01.service.SchoolService;
+import com.yixuexi.demo01.service.TeacherService;
 import com.yixuexi.demo01.service.UserService;
 import com.yixuexi.demo01.service.impl.StudentServiceImpl;
 import com.yixuexi.demo01.service.impl.UserServiceImpl;
@@ -44,7 +46,7 @@ public class BeanTest {
 
         UserDaoImpl userDao03 = (UserDaoImpl) classPathXmlApplicationContext.getBean("userDao03");
         System.out.println(userDao03.getName());
-        System.out.println("=============================");
+        System.out.println("============================");
         StudentServiceImpl studentService = (StudentServiceImpl) classPathXmlApplicationContext.getBean("studentService");
 
         System.out.println(studentService.getName());
@@ -60,5 +62,17 @@ public class BeanTest {
         ClassPathXmlApplicationContext applicationContext = new ClassPathXmlApplicationContext(config);
         SchoolService schoolService1 = (SchoolService) applicationContext.getBean("schoolService1");
         schoolService1.show();
+
+        TeacherService teacherServiceImpl = (TeacherService) applicationContext.getBean("teacherServiceImpl");
+
+        teacherServiceImpl.show();
+    }
+    @Test
+    public void doOther(){
+        String config = "beans.xml";
+        ClassPathXmlApplicationContext classPathXmlApplicationContext = new ClassPathXmlApplicationContext(config);
+        AddressService addressServiceImpl = (AddressService) classPathXmlApplicationContext.getBean("addressServiceImpl");
+
+        addressServiceImpl.show();
     }
 }
